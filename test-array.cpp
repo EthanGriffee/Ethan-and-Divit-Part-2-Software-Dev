@@ -68,7 +68,7 @@ void test3() {
   t_false(a3->equals(a2));
   t_false(a3->equals(u));
   t_false(a->equals(a2));
-  t_true(a3->size == 4);
+  t_true(a3->size() == 4);
   Array * a4 = new Array(4);
   a4->set(0, s);
   a4->set(1, t);
