@@ -1,11 +1,3 @@
-
-
-Array is an Object, that has a pointer of pointers called contents, that is initialized 
-with the size input upon creation by the user. The length field is also set to this size.
-
-The array is initialized with nullpointers, and indexes of the array can be set using the
-"set" method.
-
 You can get the contents of a specific index with the "get" method.
 
 The clear method sets the contents to be a pointer of null pointers.

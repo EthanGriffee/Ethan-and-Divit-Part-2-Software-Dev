@@ -4,8 +4,6 @@
 
 class Array : public Object{
     public:
-        Object** contents;
-        size_t length;
 
         Array(size_t length){
 
@@ -43,7 +41,7 @@ class Array : public Object{
         }
 
         // returns if this array has the same values at the other array
-        Array* equals(Object* other) {
+        bool equals(Object* other) {
 
         }
 

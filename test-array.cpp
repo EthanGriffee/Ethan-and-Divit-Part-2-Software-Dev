@@ -20,6 +20,10 @@ void test1() {
   t_true(a->get(2)->equals(x));
   t_true(a->get(1)->equals(t));
   t_true(a->size() == 2);
+  delete s;
+  delete t;
+  delete x;
+  delete a;
   OK("1");
 }
  
@@ -39,6 +43,10 @@ void test2() {
   t_true(a->indexOf(s, 1) == 2);
   a->clear();
   t_true(a->indexOf(t) == -1);
+  delete s;
+  delete t;
+  delete u;
+  delete a;
   OK("2");
 }
  
@@ -67,6 +75,14 @@ void test3() {
   a4->set(2, u);
   a4->set(3, o);
   t_true(a3->equals(a4));
+  delete s;
+  delete t;
+  delete u;
+  delete o;
+  delete a;
+  delete a2;
+  delete a3;
+  delete a4;
   OK("3");
 }
  
@@ -76,9 +92,12 @@ void test4() {
   String * t = new String("B");
   Array * a = new Array(2);
   a->set(0, s);
-  t_true(a->hash() == 65);
+  t_true(a->hash() == s->hash());
   a->set(1, t);
-  t_true(a->hash() == 131);
+  t_true(a->hash() == s->hash() + t->hash());
+  delete a;
+  delete s;
+  delete t;
   OK("4");
 }
 
