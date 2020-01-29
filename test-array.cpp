@@ -20,6 +20,8 @@ void test1() {
   t_true(a->get(2)->equals(x));
   t_true(a->get(1)->equals(t));
   t_true(a->size() == 2);
+  a->set(1, s);
+  t_true(a->get(1)->equals(s));
   delete s;
   delete t;
   delete x;
@@ -98,6 +100,80 @@ void test4() {
   delete a;
   delete s;
   delete t;
+  OK("4");
+}
+
+//testing String Array
+void test5() {
+  String * s = new String("A");
+  String * t = new String("BCD");
+  StringArray * a = new StringArray();
+  a->push(s);
+  a->push(t);
+  t_true(static_cast<String*> (a->get(1))->length() == 3);
+  delete a;
+  delete s;
+  delete t;
+}
+
+// testing Bool Array
+void test6() {
+  BoolArray * a = new BoolArray();
+  BoolObj * b1 = new BoolObj(true);
+  BoolObj * b2 = new BoolObj(false);
+  a->push(b1);
+  a->push(b2);
+  t_true(static_cast<BoolObj*> (a->get(1))->getBool() == true);
+  delete a;
+  delete b1;
+  delete b2;
+}
+
+// testing Int Array
+void test7() {
+  IntArray * a = new IntArray();
+  IntObj * i1 = new IntObj(12);
+  IntObj * i2 = new IntObj(2);
+  a->push(i1);
+  a->push(i2);
+  t_true(static_cast<IntObj*> (a->get(1))->getInt() == 2);
+  delete a;
+  delete i1;
+  delete i2;
+}
+
+// testing Float Array
+void test8() {
+  FloatArray * a = new FloatArray();
+  FloatObj * f1 = new FloatObj(1.2);
+  FloatObj * f2 = new FloatObj(2.2);
+  a->push(f1);
+  a->push(f2);
+  t_true(static_cast<FloatObj*> (a->get(1))->getFloat() == 2.2); 
+  delete a;
+  delete f1;
+  delete f2;
+}
+
+// tests the resizing
+void test4() {
+  String * s = new String("A");
+  String * t = new String("B");
+  FloatObj * f = new FloatObj(2.2);
+  IntObj * i = new IntObj(2);
+  IntObj * i2 = new IntObj(2);
+  Array * a = new Array(2);
+  a->push(s);
+  a->push(t);
+  a->push(f);
+  a->push(i);
+  t_true(a->get(3)->equals(i2));
+  delete a;
+  delete s;
+  delete f;
+  delete t;
+  delete i;
+  delete i2;
   OK("4");
 }
 

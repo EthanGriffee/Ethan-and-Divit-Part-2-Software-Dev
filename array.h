@@ -1,26 +1,42 @@
 #pragma once
 
 #include "object.h"
+#include "string.h"
 
+
+// Represents a dynamically sized array
 class Array : public Object{
     public:
 
-        Array(size_t length){
+        // initializes an empty array with a size of 0 and a max size of 2
+        Array(){
 
         }
 
-        // return the object at the index
+        // initializes an empty array with a size of 0 and a max size of max_size
+        Array(size_t max_size){
+
+        }
+
+        // return the object at the index, throws an error if the index > size
         Object* get(size_t index){
 
         }
 
-        //  sets the element at index i to the new object
+        //  sets the element at index i to the new object, throws an error if  
+        // i > size
         void set(size_t i, Object* obj) {
 
         }
 
         // deletes the contents of the array
         void clear() {
+
+        }
+
+        // adds obj to the end of the Array, increases the size of the array, 
+        // and increases the max size if necessary
+        void push(Object* obj) {
 
         }
 
@@ -60,4 +76,49 @@ class Array : public Object{
         virtual ~Array() {
 
         }
+};
+
+/**
+ * Incomplete implementation of StringArray. The push and set
+ * methods would be overridden to include checks for Strings.
+ **/
+class StringArray : public Array {
+
+    public:
+
+
+        StringArray() : Array() {
+
+        }
+
+};
+
+/**
+ * Incomplete implementation of BoolArray. The push and set
+ * methods would be overridden to include checks for BoolObjs. 
+ **/
+class BoolArray : public Array {
+    public:
+
+        BoolArray() : Array() {
+
+        }
+
+};
+
+/**
+ * Incomplete implementation of IntArray. The push and set
+ * methods would be overridden to include checks for IntObj. 
+ **/
+class IntArray : public Array {
+
+};
+
+
+/**
+ * Incomplete implementation of FloatArray. The push and set
+ * methods would be overridden to include checks for FloatObj. 
+ **/
+class FloatArray : public Array {
+
 };
