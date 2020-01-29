@@ -58,8 +58,8 @@ class BoolObj : public Object {
             
         }
 
-        // returns f
-        bool getFloat() {
+        // returns b
+        bool getBool() {
 
         }
 };
@@ -79,7 +79,7 @@ class IntObj : public Object{
         }
 
         // returns i
-        int getFloat() {
+        int getInt() {
 
         }
 };

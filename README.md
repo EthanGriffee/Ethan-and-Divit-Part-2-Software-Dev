@@ -1,3 +1,9 @@
+Array.h is a Object that represents an arraylist. The max size of the Array can be passed through
+the constructor, or it can be initiallized with a default max_size.
+
+The push method increases the size of the arrray, and if necessary increases the max_size of the
+array and adds the element to the end of the array.
+
 You can get the contents of a specific index with the "get" method.
 
 The clear method sets the contents to be a pointer of null pointers.

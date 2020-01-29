@@ -24,7 +24,7 @@ class Array : public Object{
         }
 
         //  sets the element at index i to the new object, throws an error if  
-        // i > size
+        // i >= size
         void set(size_t i, Object* obj) {
 
         }

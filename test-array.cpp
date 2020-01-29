@@ -8,15 +8,15 @@ void OK(const char* m) { println(m);}
 void t_true(bool p) { if (!p) FAIL(); }
 void t_false(bool p) { if (p) FAIL(); }
  
-// Tests setting, getting, and size
+// Tests setting, getting, size, and push
 void test1() {
   String * s = new String("Hello");
   String * t = new String("World");
   String * x = new String("HelloWorld");
   Array * a = new Array(3);
-  a->set(0, s);
-  a->set(1, t);
-  a->set(2, x);
+  a->push(s);
+  a->push(t);
+  a->push(x);
   t_true(a->get(2)->equals(x));
   t_true(a->get(1)->equals(t));
   t_true(a->size() == 2);
@@ -35,9 +35,9 @@ void test2() {
   String * t = new String("World");
   Object * u = new Object();
   Array * a = new Array(3);
-  a->set(0, s);
-  a->set(1, t);
-  a->set(2, u);
+  a->push(s);
+  a->push(t);
+  a->push(u);
   t_true(a->indexOf(t) == 1);
   t_true(a->indexOf(s) == 0);
   t_true(a->indexOf(s, 1) == -1);
@@ -60,10 +60,10 @@ void test3() {
   Object * o = new Object();
   Array * a = new Array(2);
   Array * a2 = new Array(2);
-  a->set(0, s);
-  a->set(1, t);
-  a2->set(0, u);
-  a2->set(1, o);
+  a->push(s);
+  a->push(t);
+  a2->push(u);
+  a2->push(o);
   Array * a3 = a->concat(a2);
   t_true(a3->indexOf(t) == 1);
   t_true(a3->indexOf(u) == 3);
@@ -72,10 +72,10 @@ void test3() {
   t_false(a->equals(a2));
   t_true(a3->size() == 4);
   Array * a4 = new Array(4);
-  a4->set(0, s);
-  a4->set(1, t);
-  a4->set(2, u);
-  a4->set(3, o);
+  a4->push(s);
+  a4->push(t);
+  a4->push(u);
+  a4->push(o);
   t_true(a3->equals(a4));
   delete s;
   delete t;
@@ -93,9 +93,9 @@ void test4() {
   String * s = new String("A");
   String * t = new String("B");
   Array * a = new Array(2);
-  a->set(0, s);
+  a->push(s);
   t_true(a->hash() == s->hash());
-  a->set(1, t);
+  a->push(t);
   t_true(a->hash() == s->hash() + t->hash());
   delete a;
   delete s;
@@ -156,7 +156,7 @@ void test8() {
 }
 
 // tests the resizing
-void test4() {
+void test9() {
   String * s = new String("A");
   String * t = new String("B");
   FloatObj * f = new FloatObj(2.2);
@@ -183,5 +183,10 @@ int main() {
   test2();
   test3();
   test4();
+  test5();
+  test6();
+  test7();
+  test8();
+  test9();
   return 0;
 }
