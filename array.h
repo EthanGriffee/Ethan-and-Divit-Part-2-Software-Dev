@@ -19,55 +19,55 @@ class Array : public Object{
         }
 
         // return the object at the index, throws an error if the index > size
-        Object* get(size_t index){
+        virtual Object* get(size_t index){
 
         }
 
         //  sets the element at index i to the new object, throws an error if  
         // i >= size
-        void set(size_t i, Object* obj) {
+        virtual void set(size_t i, Object* obj) {
 
         }
 
         // deletes the contents of the array
-        void clear() {
+        virtual void clear() {
 
         }
 
         // adds obj to the end of the Array, increases the size of the array, 
         // and increases the max size if necessary
-        void push(Object* obj) {
+        virtual void push(Object* obj) {
 
         }
 
         // returns the first index of a given object, or -1 if the array does not contrain the object
-        size_t indexOf(Object* obj) {
+        virtual size_t indexOf(Object* obj) {
 
         }
 
         // returns the first index of a given object starting at index i, or -1 if the array does not 
         // contrain the object after index i
-        size_t indexOf(Object* obj, size_t i) {
+        virtual size_t indexOf(Object* obj, size_t i) {
 
         }
 
         // returns an array with elements of this array combined with elements of other
-        Array* concat(Array* other) {
+        virtual Array* concat(Array* other) {
             
         }
 
         // returns if this array has the same values at the other array
-        bool equals(Object* other) {
+        virtual bool equals(Object* other) {
 
         }
 
         // returns the hash of the array
-        size_t hash() {
+        virtual size_t hash() {
 
         }
 
         // returns the size of the array
-        size_t size() {
+        virtual size_t size() {
 
         }
 
