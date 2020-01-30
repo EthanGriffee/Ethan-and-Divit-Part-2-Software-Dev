@@ -186,6 +186,9 @@ void test8() {
   size_t epsilon = .01;
   float x = static_cast<FloatObj*> (a->get(1))->getFloat() - 2.2;
   CS4500_ASSERT_TRUE( x < epsilon && x > epsilon); 
+  a->set(0, f2);
+  float x = static_cast<FloatObj*> (a->get(0))->getFloat() - 2.2;
+  CS4500_ASSERT_TRUE( x < epsilon && x > epsilon); 
   delete a;
   delete f1;
   delete f2;
