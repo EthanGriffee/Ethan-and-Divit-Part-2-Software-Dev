@@ -24,7 +24,7 @@ void set_get_size_push_test() {
   a->push(x);
   CS4500_ASSERT_TRUE(a->get(2)->equals(x));
   CS4500_ASSERT_TRUE(a->get(1)->equals(t));
-  CS4500_ASSERT_TRUE(a->size() == 2);
+  CS4500_ASSERT_TRUE(a->size() == 3);
   a->set(1, s);
   CS4500_ASSERT_TRUE(a->get(1)->equals(s));
   delete s;
@@ -190,10 +190,10 @@ void push_set_float_array_test() {
   a->push(f2);
   size_t epsilon = .01;
   float x = static_cast<FloatObj*> (a->get(1))->getFloat() - 2.2;
-  CS4500_ASSERT_TRUE( x < epsilon && x > epsilon); 
+  CS4500_ASSERT_TRUE( x < epsilon && x > -epsilon); 
   a->set(0, f2);
-  float x = static_cast<FloatObj*> (a->get(0))->getFloat() - 2.2;
-  CS4500_ASSERT_TRUE( x < epsilon && x > epsilon); 
+  x = static_cast<FloatObj*> (a->get(0))->getFloat() - 2.2;
+  CS4500_ASSERT_TRUE( x < epsilon && x > -epsilon); 
   delete a;
   delete f1;
   delete f2;
