@@ -66,7 +66,7 @@ void test3() {
   a2->push(o);
   Array * a3 = a->concat(a2);
   t_true(a3->indexOf(t) == 1);
-  t_true(a3->indexOf(u) == 3);
+  t_true(a3->indexOf(o) == 3);
   t_false(a3->equals(a2));
   t_false(a3->equals(u));
   t_false(a->equals(a2));
@@ -114,6 +114,7 @@ void test5() {
   delete a;
   delete s;
   delete t;
+  OK("5");
 }
 
 // testing Bool Array
@@ -123,10 +124,11 @@ void test6() {
   BoolObj * b2 = new BoolObj(false);
   a->push(b1);
   a->push(b2);
-  t_true(static_cast<BoolObj*> (a->get(1))->getBool() == true);
+  t_true(static_cast<BoolObj*> (a->get(1))->getBool() == false);
   delete a;
   delete b1;
   delete b2;
+  OK("6");
 }
 
 // testing Int Array
@@ -140,6 +142,7 @@ void test7() {
   delete a;
   delete i1;
   delete i2;
+  OK("7");
 }
 
 // testing Float Array
@@ -149,10 +152,13 @@ void test8() {
   FloatObj * f2 = new FloatObj(2.2);
   a->push(f1);
   a->push(f2);
-  t_true(static_cast<FloatObj*> (a->get(1))->getFloat() == 2.2); 
+  size_t epsilon = .01;
+  float x = static_cast<FloatObj*> (a->get(1))->getFloat() - 2.2;
+  t_true( x < epsilon && x > epsilon); 
   delete a;
   delete f1;
   delete f2;
+  OK("8");
 }
 
 // tests the resizing
@@ -174,7 +180,7 @@ void test9() {
   delete t;
   delete i;
   delete i2;
-  OK("4");
+  OK("9");
 }
 
  
