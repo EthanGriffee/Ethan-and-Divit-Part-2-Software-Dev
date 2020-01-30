@@ -18,6 +18,11 @@ class Array : public Object{
 
         }
 
+        // private method that increases the maximum size of the array by copying the contents
+        virtual void _resize() {
+
+        }
+
         // return the object at the index, throws an exception if the index > size
         virtual Object* get(size_t index){
 
@@ -41,13 +46,13 @@ class Array : public Object{
         }
 
         // returns the first index of a given object, or -1 if the array does not contrain the object
-        virtual size_t indexOf(Object* obj) {
+        virtual int indexOf(Object* obj) {
 
         }
 
         // returns the first index of a given object starting at index i, or -1 if the array does not 
         // contrain the object after index i
-        virtual size_t indexOf(Object* obj, size_t i) {
+        virtual int indexOf(Object* obj, size_t i) {
 
         }
 

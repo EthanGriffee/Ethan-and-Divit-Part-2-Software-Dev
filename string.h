@@ -16,7 +16,7 @@ class String : public Object {
         }
 
         // returns the length of the string
-        size_t length() {
+        size_t size() {
         }
 
         // hashes the string

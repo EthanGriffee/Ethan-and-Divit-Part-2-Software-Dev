@@ -13,8 +13,8 @@
 #define CS4500_ASSERT_EXIT_ONE(a)  \
   ASSERT_EXIT(a(), ::testing::ExitedWithCode(1), ".*");
  
-// Tests setting, getting, size, and push
-void test1() {
+// Tests getting, size, and push
+void set_get_size_push_test() {
   String * s = new String("Hello");
   String * t = new String("World");
   String * x = new String("HelloWorld");
@@ -34,12 +34,12 @@ void test1() {
   exit(0);
 }
 
-TEST(W1, test1) {
-  CS4500_ASSERT_EXIT_ZERO(test1)
+TEST(W1, set_get_size_push_test) {
+  CS4500_ASSERT_EXIT_ZERO(set_get_size_push_test)
 }
  
 // Tests indexOf and clear
-void test2() {
+void indexof_clear_test() {
   String * s = new String("Hello");
   String * t = new String("World");
   Object * u = new Object();
@@ -61,12 +61,12 @@ void test2() {
   exit(0);
 }
 
-TEST(W1, test2) {
-  CS4500_ASSERT_EXIT_ZERO(test2)
+TEST(W1, indexof_clear_test) {
+  CS4500_ASSERT_EXIT_ZERO(indexof_clear_test)
 }
  
 // Tests concat and equals
-void test3() {
+void concat_equals_test() {
   String * s = new String("Hello");
   String * t = new String("World");
   String * u = new String("123");
@@ -101,27 +101,32 @@ void test3() {
   exit(0);
 }
 
-TEST(W1, test3) { CS4500_ASSERT_EXIT_ZERO(test3) }
+TEST(W1, concat_equals_test) { CS4500_ASSERT_EXIT_ZERO(concat_equals_test) }
  
 // tests the hashing
-void test4() {
+void hash_test() {
   String * s = new String("A");
   String * t = new String("B");
   Array * a = new Array(2);
+  Array * a2 = new Array(3);
   a->push(s);
-  CS4500_ASSERT_TRUE(a->hash() == s->hash());
+  CS4500_ASSERT_FALSE(a->hash() == a2->hash());
+  a2->push(s);
+  CS4500_ASSERT_TRUE(a->hash() == a2->hash());
   a->push(t);
-  CS4500_ASSERT_TRUE(a->hash() == s->hash() + t->hash());
+  CS4500_ASSERT_FALSE(a->hash() == a2->hash());
+  a2->push(t);
+  CS4500_ASSERT_TRUE(a->hash() == a2->hash());
   delete a;
   delete s;
   delete t;
   exit(0);
 }
 
-TEST(W1, test4) { CS4500_ASSERT_EXIT_ZERO(test4) }
+TEST(W1, hash_test) { CS4500_ASSERT_EXIT_ZERO(hash_test) }
 
 //testing String Array
-void test5() {
+void push_set_str_array_test() {
   String * s = new String("A");
   String * t = new String("BCD");
   String * e = new String("BCD");
@@ -137,10 +142,10 @@ void test5() {
   exit(0);
 }
 
-TEST(W1, test5) { CS4500_ASSERT_EXIT_ZERO(test5) }
+TEST(W1, push_set_str_array_test) { CS4500_ASSERT_EXIT_ZERO(push_set_str_array_test) }
 
 // testing Bool Array
-void test6() {
+void push_set_bool_array_test() {
   BoolArray * a = new BoolArray();
   BoolObj * b1 = new BoolObj(true);
   BoolObj * b2 = new BoolObj(false);
@@ -155,10 +160,10 @@ void test6() {
   exit(0);
 }
 
-TEST(W1, test6) { CS4500_ASSERT_EXIT_ZERO(test6) }
+TEST(W1, push_set_bool_array_test) { CS4500_ASSERT_EXIT_ZERO(push_set_bool_array_test) }
 
 // testing Int Array
-void test7() {
+void push_set_int_array_test() {
   IntArray * a = new IntArray();
   IntObj * i1 = new IntObj(12);
   IntObj * i2 = new IntObj(2);
@@ -174,10 +179,10 @@ void test7() {
 }
 
 
-TEST(W1, test7) { CS4500_ASSERT_EXIT_ZERO(test7) }
+TEST(W1, push_set_int_array_test) { CS4500_ASSERT_EXIT_ZERO(push_set_int_array_test) }
 
 // testing Float Array
-void test8() {
+void push_set_float_array_test() {
   FloatArray * a = new FloatArray();
   FloatObj * f1 = new FloatObj(1.2);
   FloatObj * f2 = new FloatObj(2.2);
@@ -195,10 +200,10 @@ void test8() {
   exit(0);
 }
 
-TEST(W1, test8) { CS4500_ASSERT_EXIT_ZERO(test8) }
+TEST(W1, push_set_float_array_test) { CS4500_ASSERT_EXIT_ZERO(push_set_float_array_test) }
 
 // tests the resizing
-void test9() {
+void resize_test() {
   String * s = new String("A");
   String * t = new String("B");
   FloatObj * f = new FloatObj(2.2);
@@ -219,7 +224,7 @@ void test9() {
   exit(0);
 }
 
-TEST(W1, test9) { CS4500_ASSERT_EXIT_ZERO(test9) }
+TEST(W1, resize_test) { CS4500_ASSERT_EXIT_ZERO(resize_test) }
 
 
 // test death of get
