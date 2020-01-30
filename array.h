@@ -23,12 +23,12 @@ class Array : public Object{
 
         }
 
-        // return the object at the index, throws an exception if the index > size
+        // return the object at the index, exits with code 1 if the index > size
         virtual Object* get(size_t index){
 
         }
 
-        //  sets the element at index i to the new object, throws an exception if  
+        //  sets the element at index i to the new object, exits with code 1  
         // i >= size
         virtual void set(size_t i, Object* obj) {
 
@@ -93,14 +93,14 @@ class StringArray : public Array {
 
         }
 
-        // Checks if the given object is a String, and throws an exception if it is not.
+        // Checks if the given object is a String, and exits with code 1 if it is not.
         // Then pushes the obj to the end of the array
         virtual void push(Object* obj) {
 
         }
 
 
-        //  Chceks if the given object is a String, and throws an exception if it is not.
+        //  Chceks if the given object is a String, and exits with code 1 if it is not.
         // Then sets index i in the array to obj
         virtual void set(size_t i, Object* obj) {
 
@@ -118,14 +118,14 @@ class BoolArray : public Array {
 
         }
 
-        // Checks if the given object is a BoolObj, and throws an exception if it is not.
+        // Checks if the given object is a BoolObj, and exits with code 1 if it is not.
         // Then pushes the obj to the end of the array
         virtual void push(Object* obj) {
 
         }
 
 
-        //  Chceks if the given object is a BoolObj, and throws an exception if it is not.
+        //  Chceks if the given object is a BoolObj, and exits with code 1  if it is not.
         // Then sets index i in the array to obj
         virtual void set(size_t i, Object* obj) {
 
@@ -143,14 +143,14 @@ class IntArray : public Array {
 
         }
 
-        // Checks if the given object is a IntObj, and throws an exception if it is not.
+        // Checks if the given object is a IntObj, and exits with code 1 if it is not.
         // Then pushes the obj to the end of the array
         virtual void push(Object* obj) {
 
         }
 
 
-        //  Chceks if the given object is a IntObj, and throws an exception if it is not.
+        //  Chceks if the given object is a IntObj, and exits with code 1 if it is not.
         // Then sets index i in the array to obj
         virtual void set(size_t i, Object* obj) {
 
@@ -169,14 +169,14 @@ class FloatArray : public Array {
 
         }
 
-        // Checks if the given object is a FloatObj, and throws an exception if it is not.
+        // Checks if the given object is a FloatObj, and exits with code 1 if it is not.
         // Then pushes the obj to the end of the array
         virtual void push(Object* obj) {
 
         }
 
 
-        //  Chceks if the given object is a FloatObj, and throws an exception if it is not.
+        //  Chceks if the given object is a FloatObj, and exits with code 1 if it is not.
         // Then sets index i in the array to obj
         virtual void set(size_t i, Object* obj) {
 
