@@ -188,7 +188,7 @@ void push_set_float_array_test() {
   FloatObj * f2 = new FloatObj(2.2);
   a->push(f1);
   a->push(f2);
-  size_t epsilon = .01;
+  float epsilon = .01;
   float x = static_cast<FloatObj*> (a->get(1))->getFloat() - 2.2;
   CS4500_ASSERT_TRUE( x < epsilon && x > -epsilon); 
   a->set(0, f2);
