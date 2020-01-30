@@ -18,12 +18,12 @@ class Array : public Object{
 
         }
 
-        // return the object at the index, throws an error if the index > size
+        // return the object at the index, throws an exception if the index > size
         virtual Object* get(size_t index){
 
         }
 
-        //  sets the element at index i to the new object, throws an error if  
+        //  sets the element at index i to the new object, throws an exception if  
         // i >= size
         virtual void set(size_t i, Object* obj) {
 
@@ -79,46 +79,102 @@ class Array : public Object{
 };
 
 /**
- * Incomplete implementation of StringArray. The push and set
- * methods would be overridden to include checks for Strings.
+ * An Array whose contents will only be Strings
  **/
 class StringArray : public Array {
 
     public:
-
-
         StringArray() : Array() {
 
         }
 
-};
+        // Checks if the given object is a String, and throws an exception if it is not.
+        // Then pushes the obj to the end of the array
+        virtual void push(Object* obj) {
 
-/**
- * Incomplete implementation of BoolArray. The push and set
- * methods would be overridden to include checks for BoolObjs. 
- **/
-class BoolArray : public Array {
-    public:
+        }
 
-        BoolArray() : Array() {
+
+        //  Chceks if the given object is a String, and throws an exception if it is not.
+        // Then sets index i in the array to obj
+        virtual void set(size_t i, Object* obj) {
 
         }
 
 };
 
 /**
- * Incomplete implementation of IntArray. The push and set
- * methods would be overridden to include checks for IntObj. 
+ * An Array whose contents will only be BoolObjs
+ **/
+class BoolArray : public Array {
+    
+    public:
+        BoolArray() : Array() {
+
+        }
+
+        // Checks if the given object is a BoolObj, and throws an exception if it is not.
+        // Then pushes the obj to the end of the array
+        virtual void push(Object* obj) {
+
+        }
+
+
+        //  Chceks if the given object is a BoolObj, and throws an exception if it is not.
+        // Then sets index i in the array to obj
+        virtual void set(size_t i, Object* obj) {
+
+        }
+
+};
+
+/**
+ * An Array whose contents will only be IntObjs
  **/
 class IntArray : public Array {
+
+    public:
+        IntArray() : Array() {
+
+        }
+
+        // Checks if the given object is a IntObj, and throws an exception if it is not.
+        // Then pushes the obj to the end of the array
+        virtual void push(Object* obj) {
+
+        }
+
+
+        //  Chceks if the given object is a IntObj, and throws an exception if it is not.
+        // Then sets index i in the array to obj
+        virtual void set(size_t i, Object* obj) {
+
+        }
 
 };
 
 
 /**
- * Incomplete implementation of FloatArray. The push and set
- * methods would be overridden to include checks for FloatObj. 
+ * An Array whose contents will only be FloatObjs
  **/
 class FloatArray : public Array {
+
+    public:
+        FloatArray() : Array() {
+
+        }
+
+        // Checks if the given object is a FloatObj, and throws an exception if it is not.
+        // Then pushes the obj to the end of the array
+        virtual void push(Object* obj) {
+
+        }
+
+
+        //  Chceks if the given object is a FloatObj, and throws an exception if it is not.
+        // Then sets index i in the array to obj
+        virtual void set(size_t i, Object* obj) {
+
+        }
 
 };
