@@ -101,6 +101,7 @@ void concat_equals_test() {
   exit(0);
 }
 
+
 TEST(W1, concat_equals_test) { CS4500_ASSERT_EXIT_ZERO(concat_equals_test) }
  
 // tests the hashing
@@ -365,3 +366,46 @@ int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+
+// tests the concat with different array types
+void array_types_concat_test() {
+  String * s = new String("A");
+  String * s2 = new String("B");
+  IntObj * i = new IntObj(2);
+  IntObj * i2 = new IntObj(2);
+  StringArray * a = new StringArray();
+  IntArray * a2 = new IntArray();
+  FloatObj* f = new FloatObj(3.2);
+  Array * a3 = new Array();
+  a->push(s);
+  a->push(s2);
+  a2->push(i);
+  a2->push(i2);
+  a3->push(s);
+  a3->push(s2);
+  a3->push(i);
+  Array* a4 = a->concat(a2);
+  CS4500_ASSERT_FALSE(a3->equals(a4));
+  CS4500_ASSERT_FALSE(a4->equals(a3));
+  a3->push(i2);
+  CS4500_ASSERT_TRUE(a3->equals(a4));
+  CS4500_ASSERT_TRUE(a4->equals(a3));
+  a4->push(f);
+  CS4500_ASSERT_FALSE(a3->equals(a4));
+  CS4500_ASSERT_FALSE(a4->equals(a3));
+  a3->push(f);
+  CS4500_ASSERT_TRUE(a3->equals(a4));
+  CS4500_ASSERT_TRUE(a4->equals(a3));
+  delete s;
+  delete f;
+  delete s2;
+  delete i;
+  delete i2;
+  delete a;
+  delete a2;
+  delete a3;
+  delete a4;
+  exit(0);
+}
+
+TEST(W1, array_types_concat_test) { CS4500_ASSERT_EXIT_ZERO(array_types_concat_test) }

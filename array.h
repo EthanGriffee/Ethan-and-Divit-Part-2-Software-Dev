@@ -18,11 +18,6 @@ class Array : public Object{
 
         }
 
-        // private method that increases the maximum size of the array by copying the contents
-        virtual void _resize() {
-
-        }
-
         // return the object at the index, exits with code 1 if the index > size
         virtual Object* get(size_t index){
 
